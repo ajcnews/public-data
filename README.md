@@ -2,7 +2,7 @@
 
 This repository contains compilations of public data from different sources used in the AJC's reporting.
 
-# Power Outage Data
+## Power Outage Data
 
 The `power-outages` directory contains data on power outages in the state of Georgia. The data is from the Georgia Emergency Management and Homeland Security Agency (GEMA/HS) and is updated every 10 minutes. The data is pulled in JSON format before being converted to CSV format. The data contains information for each affected county; outage count, color county status, customer count, percentage of customers affected, county ID, timestamp, global ID, and edit date.
 

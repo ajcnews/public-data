@@ -6,6 +6,9 @@ on:
 jobs:
   update_power_outage_map:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./power-outages
     steps:
       - name: checkout the repo
         uses: actions/checkout@v4
@@ -15,10 +18,8 @@ jobs:
           python-version: 3.12
           cache: 'pip'
       - name: Install dependencies
-        working-directory: ./power-outages
         run: pip install -r requirements.txt
       - name: Execute python script
-        working-directory: ./power-outages
         run: |
           python power-outages/convert.py
           git config user.name github-actions

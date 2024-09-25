@@ -15,8 +15,10 @@ jobs:
           python-version: 3.12
           cache: 'pip'
       - name: Install dependencies
-        run: pip install -r power-outages/requirements.txt
+        working-directory: ./power-outages
+        run: pip install -r requirements.txt
       - name: Execute python script
+        working-directory: ./power-outages
         run: |
           python power-outages/convert.py
           git config user.name github-actions

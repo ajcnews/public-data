@@ -32,9 +32,9 @@ with open(csv_file, mode='w', newline='') as file:
         attributes["county_id"] = attributes.pop("CountyId")
         attributes["global_id"] = attributes.pop("GlobalID")
 
-        attributes["timestamp"] = datetime.fromtimestamp(attributes.pop("TimeStamp") / 1000.0).replace(tzinfo=ny_zone).strftime("%Y-%m-%d %H:%M:%S")
+        attributes["timestamp"] = datetime.fromtimestamp(attributes.pop("TimeStamp") / 1000.0).replace(tzinfo=utc_zone).astimezone(ny_zone).strftime("%Y-%m-%d %H:%M:%S")
 
-        attributes["edit_date"] = datetime.fromtimestamp(attributes.pop("EditDate") / 1000.0).replace(tzinfo=ny_zone).strftime("%Y-%m-%d %H:%M:%S")
+        attributes["edit_date"] = datetime.fromtimestamp(attributes.pop("EditDate") / 1000.0).replace(tzinfo=utc_zone).astimezone(ny_zone).strftime("%Y-%m-%d %H:%M:%S")
 
         writer.writerow({key: attributes[key] for key in csv_columns})
 

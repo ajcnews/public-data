@@ -3,8 +3,13 @@
 This repository contains compilations of public data from different sources used in the AJC's reporting.
 
 ## Power Outage Data
+_Charles Minshew and Rahul Deshpande, September 2024_
 
-The `power-outages` directory contains data on power outages in the state of Georgia. The data is from the Georgia Emergency Management and Homeland Security Agency (GEMA/HS) and is updated every 10 minutes. The data is pulled in JSON format before being converted to CSV format. The data contains information for each affected county; outage count, color county status, customer count, percentage of customers affected, county ID, timestamp, global ID, and edit date.
+This data collector was built for our reporting on Hurricane Helene, a hurricane that hit the 'Big Bend' area of Florida as a Category 4 in September 2024 and traveled north through Georgia. Here's a [link to the story](https://www.ajc.com/news/georgia-news/georgia-statewide-power-outage-map-see-outages-by-county-hurricane-helene-updates/KYWHZWRE3RAWLPDF6QOLWLVHUQ/).
+
+We utilized GitHub Actions to automate the updates of both the data and the map every 10 minutes. You can view the workflow file here: [`.github/workflows/update_power_outage_map.yml`](https://github.com/ajcnews/public-data/blob/main/.github/workflows/update_power_outage_map.yml). The map itself was created using Datawrapper, which dynamically updates the visualization based on the raw data provided in this [CSV file](https://raw.githubusercontent.com/ajcnews/public-data/refs/heads/main/power-outages/data/outages.csv).
+
+The `power-outages` directory contains data on power outages in the state of Georgia. The data is from the Georgia Emergency Management and Homeland Security Agency (GEMA) and is updated every 10 minutes. The data is pulled in JSON format before being converted to CSV format using the `convert.py` script. The data contains information for each affected county, including outage count, GEMA's color for county status, customer count, percentage of customers affected, county ID, timestamp, global ID, and edit date.
 
 Example of county data JSON:
 ```json
@@ -23,4 +28,10 @@ Example of county data JSON:
     "EditDate": 1727280280114
   }
 },
+```
+
+Example of CSV data:
+```csv
+objectid_1,name,state_name,outage_count,county_status,customer_count,percent_out,county_id,timestamp,global_id,edit_date
+1,Decatur,Georgia,1401,#A19E01,14107,9.931239810023392,174,2024-09-27 01:15:09,4f1c9697-e63e-4cd8-b22f-9aa29ae35cd9,2024-09-27 01:15:10
 ```

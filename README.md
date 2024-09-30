@@ -5,7 +5,7 @@ This repository contains compilations of public data from different sources used
 ## Power Outage Data
 _Charles Minshew and Rahul Deshpande, September 2024_
 
-This data collector was built for our reporting on Hurricane Helene, a hurricane that hit the 'Big Bend' area of Florida as a Category 4 in September 2024 and traveled north through Georgia. Here's a [link to the story](https://www.ajc.com/news/georgia-news/georgia-statewide-power-outage-map-see-outages-by-county-hurricane-helene-updates/KYWHZWRE3RAWLPDF6QOLWLVHUQ/).
+This data collector was developed for our coverage of Hurricane Helene, which struck Florida's 'Big Bend' region as a Category 4 hurricane in September 2024 and then moved northward through Georgia, North Carolina, South Carolina, and Tennessee. Here's a [link to the story](https://www.ajc.com/news/georgia-news/georgia-statewide-power-outage-map-see-outages-by-county-hurricane-helene-updates/KYWHZWRE3RAWLPDF6QOLWLVHUQ/).
 
 We utilized GitHub Actions to automate the updates of both the data and the map every 10 minutes. You can view the workflow file here: [`.github/workflows/update_power_outage_map.yml`](https://github.com/ajcnews/public-data/blob/main/.github/workflows/update_power_outage_map.yml). The map itself was created using Datawrapper, which dynamically updates the visualization based on the raw data provided in this [CSV file](https://raw.githubusercontent.com/ajcnews/public-data/refs/heads/main/power-outages/data/outages.csv).
 
